@@ -121,6 +121,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 "SETTING UP FOLDING
+"za is used to toggle folds and let it be on indent its very useful in python
 set foldenable
 set foldlevelstart=10
 set foldnestmax=10
@@ -134,8 +135,7 @@ set writebackup
 
 set t_Co=256
 set background=dark
-"colorscheme solarized8
-colorscheme gruvbox
+colorscheme one
 
 "hi Normal guibg=NONE ctermbg=NONE
 "let g:ycm_autoclose_preview_window_after_completion=1
@@ -195,7 +195,7 @@ noremap <Leader>P "+p
 
 "vim airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='bubblegum'
+let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 
 " LSP config (the mappings used in the default file don't quite work right)
@@ -237,7 +237,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = {'clangd', 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = {'clangd', 'pyright'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
